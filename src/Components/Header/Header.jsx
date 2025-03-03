@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
-import {Link} from "react-router-dom"
-
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   // modalType can be "login" or "signup" or null (closed)
@@ -20,8 +19,7 @@ const Header = () => {
 
   return (
     <>
-   
-   {modalType && (
+      {modalType && (
         <div className={styles.modal}>
           <div className={styles["modal-dialog"]}>
             <div className={styles["modal-header"]}>
@@ -50,6 +48,7 @@ const Header = () => {
                       SignUp as a Patient
                     </Link>
                   </h6>
+                  <Link to="/Contact"></Link>
                 </>
               )}
             </div>
@@ -58,17 +57,30 @@ const Header = () => {
       )}
       <nav className={styles.navbar}>
         <div className={styles["navbar-brand"]}>
-          <img src="./Images/HealthCare.png" className={styles.logo} alt="Health Logo" />
+          <img
+            src="./Images/HealthCare.png"
+            className={styles.logo}
+            alt="Health Logo"
+          />
         </div>
         <ul className={styles["navbar-nav"]}>
           <li className={styles["nav-item"]}>
-            <a className={styles.active} href="#">Home</a>
+            <a className={styles.active} href="#">
+              Home
+            </a>
           </li>
           <li className={styles["nav-item"]}>
             <a href="#">AboutUs</a>
           </li>
           <li className={styles["nav-item"]}>
-            <a className={styles.disabled} href="#">ContactUs</a>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.disabled
+              }
+            >
+              ContactUs
+            </NavLink>
           </li>
         </ul>
         <form className={styles["button-form"]}>

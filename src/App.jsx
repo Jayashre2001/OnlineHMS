@@ -16,11 +16,12 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
+      
 
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/logindoctor" element={<LoginDoctor />} />
         <Route path="/loginpatient" element={<LoginPatient />} />
         <Route path="/signupdoctor" element={<SignupDoctor />} />
